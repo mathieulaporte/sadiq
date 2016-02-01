@@ -1,6 +1,6 @@
 # sadiq
 
-TODO: Write a description here
+Async job processing for crystal lang
 
 ## Installation
 
@@ -20,9 +20,6 @@ dependencies:
 ```crystal
 require "sadiq"
 ```
-
-
-TODO: Write usage instructions here
 
 ## Development
 
