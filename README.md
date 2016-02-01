@@ -1,4 +1,4 @@
-# Sadiq
+# sadiq
 
 TODO: Write a description here
 
@@ -9,8 +9,8 @@ Add this to your application's `shard.yml`:
 
 ```yaml
 dependencies:
-  Sadiq:
-    github: mathieulaporte/Sadiq
+  sadiq:
+    github: mathieulaporte/sadiq
 ```
 
 
@@ -18,7 +18,7 @@ dependencies:
 
 
 ```crystal
-require "Sadiq"
+require "sadiq"
 ```
 
 
@@ -30,7 +30,7 @@ TODO: Write development instructions here
 
 ## Contributing
 
-1. Fork it ( https://github.com/[your-github-name]/Sadiq/fork )
+1. Fork it ( https://github.com/[your-github-name]/sadiq/fork )
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)

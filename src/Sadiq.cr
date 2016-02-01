@@ -1,4 +1,4 @@
-require "./Sadiq/*"
+require "./sadiq/*"
 require "redis"
 require "json"
 require "option_parser"

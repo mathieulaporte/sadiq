@@ -3,7 +3,7 @@ module Sadiq
     extend self
 
     def redis
-      
+
     end
 
     def [](stat)

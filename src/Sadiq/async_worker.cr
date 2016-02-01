@@ -1,20 +1,31 @@
 module Sadiq
   abstract class AsyncWorker
-    # REGISTRE = {} of String => Sadiq::AsyncWorker
+    REGISTRE = {} of String => Sadiq::AsyncWorker
     def self.register
-      WorkerRegistre.register(self)
-      # REGISTRE[self.to_s] = self.new
+      # WorkerRegistre.register(self)
+      REGISTRE[self.to_s] = self.new
     end
 
     def self.registre
-      WorkerRegistre.register(self)
+      REGISTRE
+      # WorkerRegistre.register(self)
     end
 
     def self.enqueu(*args)
+      #resquee like
       #redis.sadd("#{name_space}:queue:#{@queue}")
     end
 
     def self.perform_async(*args)
+      #sidekiq like
+      msg = {
+        "class" => "MyWorker",
+        "args" => [1, 2, 3],
+        "jid" => SecureRandom.hex(12),
+        "retry" => true,
+        "enqueued_at" => Time.now.to_f
+      }
+      redis.lpush("namespace:queue:default", JSON.dump(msg))
     end
 
     def perform!(*args)
