@@ -1,9 +1,8 @@
-# sadiq
+# Sadiq
 
 Async job processing for crystal lang
 
 ## Installation
-
 
 Add this to your application's `shard.yml`:
 
@@ -13,18 +12,44 @@ dependencies:
     github: mathieulaporte/sadiq
 ```
 
-
 ## Usage
-
 
 ```crystal
 require "sadiq"
+class Archive < Sadiq::AsyncWorker
+  register
+  def perform(args)
+    # your code...
+  end
+end
 ```
 
-## Development
+Sadiq is resque "compatible", so you can use ruby resque to enqueu jobs, or monitor with resque web.
 
-TODO: Write development instructions here
+###Example :
+In your ruby code :
+```ruby
+require 'resque'
+class Archive
+  @queue = 'crystal'
+end
+```
+You can enqueu jobs like
+In your crystal code :
+```crystal
+require "sadiq"
+class Archive < Sadiq::AsyncWorker
+  register
+  def perform(args)
+    # your code...
+  end
+end
+```
 
+### After compilation
+```shell
+./your-project-name -c [concurrency] -n [namespace] -q [queue]
+```
 ## Contributing
 
 1. Fork it ( https://github.com/[your-github-name]/sadiq/fork )
@@ -35,4 +60,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [[your-github-name]](https://github.com/[your-github-name]) Mathieu Laporte - creator, maintainer
+- [[mathieulaporte]](https://github.com/[mathieulaporte]) Mathieu Laporte - creator, maintainer

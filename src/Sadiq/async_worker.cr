@@ -1,14 +1,14 @@
 module Sadiq
   abstract class AsyncWorker
-    REGISTRE = {} of String => Sadiq::AsyncWorker
+    # REGISTRE = {} of String => Sadiq::AsyncWorker
     def self.register
-      # WorkerRegistre.register(self)
-      REGISTRE[self.to_s] = self.new
+      WorkerRegistre.register(self)
+      # REGISTRE[self.to_s] = self.new
     end
 
     def self.registre
-      REGISTRE
-      # WorkerRegistre.register(self)
+      # REGISTRE
+      WorkerRegistre.registre
     end
 
     def self.enqueu(*args)
